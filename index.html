@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVYX CodeLab</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #090b12;
+      color: #f4f5fb;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 6%;
+      border-bottom: 1px solid #252839;
+    }
+    .logo { font-size: 23px; font-weight: bold; }
+    .logo span { color: #9b8cff; }
+    button {
+      background: #8975ff;
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    main {
+      max-width: 1000px;
+      margin: 65px auto;
+      padding: 20px;
+    }
+    .tag { color: #a99bff; letter-spacing: 2px; }
+    h1 { font-size: clamp(36px, 7vw, 64px); margin: 16px 0; }
+    h1 span { color: #9b8cff; }
+    p { color: #aeb3c7; line-height: 1.7; }
+    .actions { display: flex; gap: 12px; margin: 28px 0; flex-wrap: wrap; }
+    .secondary { background: #1a1d2a; border: 1px solid #33374a; }
+    .workspace {
+      margin-top: 45px;
+      border: 1px solid #303449;
+      background: #10131e;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .bar {
+      padding: 15px;
+      background: #171a28;
+      border-bottom: 1px solid #303449;
+    }
+    .editor { padding: 20px; }
+    textarea {
+      width: 100%;
+      min-height: 130px;
+      resize: vertical;
+      background: #090b12;
+      color: #d6d1ff;
+      border: 1px solid #303449;
+      border-radius: 8px;
+      padding: 14px;
+      font: 14px monospace;
+    }
+    pre {
+      color: #a9f0c3;
+      background: #090b12;
+      padding: 14px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 35px;
+    }
+    .card {
+      background: #111522;
+      border: 1px solid #292e41;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    footer {
+      text-align: center;
+      color: #858ba0;
+      padding: 30px 15px;
+      border-top: 1px solid #252839;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">NOVYX <span>CodeLab</span></div>
+    <button onclick="openWorkspace()">Open Lab</button>
+  </header>
+
+  <main>
+    <div class="tag">YOUR CODING SPACE</div>
+    <h1>Think it.<br><span>Code it.</span></h1>
+    <p>
+      A workspace for Python programming, data science,
+      machine learning, and creative ideas.
+    </p>
+
+    <div class="actions">
+      <button onclick="openWorkspace()">Launch CodeLab →</button>
+      <button class="secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+        Explore features
+      </button>
+    </div>
+
+    <section class="workspace" id="workspace">
+      <div class="bar">● &nbsp; ● &nbsp; ● &nbsp; &nbsp; Untitled Notebook</div>
+      <div class="editor">
+        <p>Python code cell</p>
+        <textarea id="code">print("Welcome to NOVYX CodeLab!")</textarea>
+        <br><br>
+        <button onclick="runCode()">Run Cell ▶</button>
+        <p>Output</p>
+        <pre id="output">Your output will appear here.</pre>
+        <p id="status">Workspace preview</p>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="card">
+        <h3>⌨ Coding Workspace</h3>
+        <p>A focused interface for writing and organizing code.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 NOVYX CODING AI</h3>
+        <p>An AI assistant planned for code explanations, generation, and debugging.</p>
+      </div>
+      <div class="card">
+        <h3>📁 Notebooks & Files</h3>
+        <p>A home for coding projects, notebooks, and datasets.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 NOVYX CodeLab · Built for curious minds</footer>
+
+  <script>
+    function openWorkspace() {
+      document.getElementById("workspace").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    function runCode() {
+      document.getElementById("output").textContent =
+        "Python execution is not connected yet.";
+      document.getElementById("status").textContent =
+        "Interface ready — Python runtime still needs integration.";
+    }
+  </script>
+</body>
+</html>
